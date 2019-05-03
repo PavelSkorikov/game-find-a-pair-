@@ -1,0 +1,12 @@
+#block{
+    width: 408px;
+    height: 550px;
+    line-height:100px;
+    border:1px solid #ccc;
+}
+.item{
+    width: 100px;
+    height: 100px;
+    float:left;
+    border:1px solid #ccc;
+}

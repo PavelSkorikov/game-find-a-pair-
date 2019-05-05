@@ -1,12 +1,58 @@
+#game{
+    z-index: 1000;
+    width: 410px;
+    min-height: 500px;
+    position: absolute;
+    top: 10px;
+    left:35%;
+    background-color: white;
+    margin: 20px;
+    padding: 20px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.75);
+}
 #block{
+    background-color: white;
+    text-align: center;
     width: 408px;
-    height: 550px;
-    line-height:100px;
-    border:1px solid #ccc;
+    height: 408px;
+    border: 1px solid #ccc;
 }
 .item{
     width: 100px;
     height: 100px;
     float:left;
     border:1px solid #ccc;
+}
+#start{
+   width: 100px;
+   height: 40px;
+}
+#answer_body {
+    z-index: 1001;
+    width: 400px;
+    min-height: 100px;
+    position: absolute;
+    top: 200px;
+    left:36%;
+    background-color: white;
+    margin-left:-150px;
+    padding: 15px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.75);
+}
+#alert_text {
+    display: block;
+    min-height: 80px;
+    padding-bottom: 5px;
+}
+#alert_button {
+    display: block;
+    padding-top: 5px;
+    text-align: right;
+}
+#alert_close {
+    width: 70px;
+    height: 35px;
+    border-radius: 8px;
+    background: blue;
+    color: white;
 }

@@ -10,8 +10,32 @@
 </head>
 
 <body>
-<div id="block"></div>
+<!-- основная форма игры --!>
+<div id="game">
+    <!-- блок с ячейками --!>
+    <div id="block">
+        <h1>Игра “Найди пару”</h1>
+        <h4>Цель игры - найти все пары клеток одинакового цвета</h4>
+        <h4>тем самым полностью раскрасив игровое поле</h4>
+        <h4>для начала игры нажмите "Старт"</h4>
+    </div>
+    <br>
 
+    <button id="start" value="Старт">Старт</button>
+    <br><br>
+    <span>
+        <label id="timer">00:00:000</label>
+    </span>
+
+    <!--форма ответа-->
+    <div id="answer_body" style="display:none">
+             Вы выиграли!<br>
+             Зытраченное время:<span id="game_time"></span>
+             <br><br>
+             <span id="alert_text"></span>
+             <span id="alert_button"><button id="alert_close">ОК</button></span>
+    </div>
+</div>
 
 <script type="text/javascript" src="js/test.js">
 </script>

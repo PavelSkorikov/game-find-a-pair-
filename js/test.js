@@ -53,10 +53,13 @@ $(function () {
         var flag = 0;
         // result, в которой будут суммироваться правильные варианты ответов
         var result = [];
-		var click = false;
-        
+        //переменная для уcтранения проблемы быстрых кликов
+
+        var click = false;
         //функция обработки нажатия на ячейку игрового поля
         $('.item').bind('click', function(){
+			//если клик совершен меняем переменную чтобы во время обработки клика не влез другой клик :)
+
 			if(!click){
 				click = true;
 				//считываем id ячейки и по нему определяем цвет
@@ -74,7 +77,10 @@ $(function () {
 				//если уже одина ячейка открыта сравниваем ее цвет с предыдущей ячейкой
 				else{
 					//если кликнули на одну ячейку повторно и ее нет среди открытого результата - делаем ее белой(закрываем)
-					if((num_id == prev_block_id) && (!result.includes(num_id))) $(this).css('background-color', 'white');
+					if((num_id == prev_block_id) && (!result.includes(num_id))){
+					    $(this).css('background-color', 'white');
+					    prev_block_id = 0;
+					}
 					else{
 						// если цвет ячейки совпадает с предыдущей открытой
 						// увеличиваем результат и обнуляем указатель предыдущей ячейки
@@ -83,39 +89,45 @@ $(function () {
 							result.push(prev_block_id);
 							result.push(num_id);
 							prev_block_id = 0;
-                            console.log(result);
+
 						}
                     
 						else{
-							//если цвет не совпадают окрашиваем обе ячейки в белый(закрываем)
+							//если цвета не совпадают окрашиваем обе ячейки в белый(закрываем)
 							function close(){
 								var it = '#el'+num_id;
 								$(it).css('background-color', 'white');
 								var id = '#el'+prev_block_id;
 								$(id).css('background-color', 'white');
-								prev_block_id = 0;
+                                prev_block_id = 0;
 								}	
 							
 							if(!result.includes(prev_block_id) && (!result.includes(num_id))){
 							 //задержка чтобы можно было увидеть неправильно открытую ячейку
+								click = true;
 								setTimeout(close, 200);
+								click = true;
 							}
 							else{
 								var id = '#el'+prev_block_id;
 								$(id).css('background-color', 'white');
-								prev_block_id = 0;
+                                prev_block_id = 0;
 							}
 						}
 					}
+
 					flag = 0;
 					}
+
 				//если открыты все пары цветов - останавливаем таймер и показываем окно с результатом
-				if(result.length == 16){
+
+            var click = false;
+            }
+            if(result.length == 16){
 					clearInterval(timer_out);
 					$("#answer_body").show();
 				}
-				click = false;
-			}
+
 		});
     }
 
